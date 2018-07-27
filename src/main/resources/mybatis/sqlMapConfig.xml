@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!-- 定义别名 -->
+    <typeAliases>
+        <typeAlias type="spring.model.Employee" alias="User"/>
+    </typeAliases>
+    <!--分页插件的使用-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+            <!--分页参数合理化-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+    <!-- 这里不需要再注册mybatis的SQL映射文件 ，因为在Spring的配置文件中配置sqlSessionFactory时注册了mapper的路径-->
+</configuration>
